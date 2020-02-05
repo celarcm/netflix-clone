@@ -27,11 +27,9 @@ class Category extends React.Component {
     };
 
     renderImages() {
-        console.log('this.props.movies', this.props.movies);
         return this.props.genre.movies.map(movie => {
-            console.log('movie', movie);
             return (
-                <Link to={`movie/${movie.id}`} ><img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} /></Link>
+                <Link to={`movie/${movie.id}`} ><img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} /></Link>
             )
         })
     };
