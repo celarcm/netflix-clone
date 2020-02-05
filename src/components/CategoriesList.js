@@ -1,67 +1,39 @@
 import React from 'react';
 import Category from './Category';
+import SearchResults from './SearchResults';
 
 class CategoriesList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            genres: [
-                {
-                    title: 'Popular on Netflix',
-                    pics: [
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p1.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p2.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p3.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p4.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p5.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p6.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p7.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p8.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p9.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p10.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p11.PNG?raw=true'
-                        },
-                        {
-                            src: 'https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true'
-                        }
-                    ]
-                }
-            ]
-        }
-    }
     render() {
         return (
             <section class="main-container">
                 <div class="location" id="home">
-                    <Category title="Popular on Netflix" genreId="18"/>
-                    <Category title="Trending Now" genreId="18"/>
-                    <Category title="TV Shows" genreId="18"/>
-                    <Category title="Blockbuster Action & Adventure" genreId="18"/>
+                    {this.renderCategories()}
                 </div>
             </section>
         )
     };
+    renderCategories() {
+        if (this.props.match && this.props.match.params.searchTerm) {
+            return <SearchResults searchTerm={this.props.match.params.searchTerm}/>
+        } else if (this.props.match && this.props.match.params.genreId) {
+            return (
+                <div>
+                    <Category key={`genreId-${this.props.match.params.genreId}`} title={this.props.match.params.genreName} genreId={this.props.match.params.genreId}/>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <Category title="Adventure" genreId="12"/>
+                    <Category title="Animation" genreId="16"/>
+                    <Category title="Crime" genreId="80"/>
+                    <Category title="Documentary" genreId="99"/>
+                    <Category title="Romance" genreId="10749"/>
+                    <Category title="Thriller" genreId="53"/>
+                </div>
+            );
+        }
+    }
 };
 
 export default CategoriesList;
