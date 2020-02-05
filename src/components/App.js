@@ -7,10 +7,10 @@ const App = () => {
     return (
         <div className="wrapper">
             <BrowserRouter>
-                <Route path="/" component={NavigationBar} />
-                <Route path="/" exact component={CategoriesList} />
-                <Route path="/genre/:genreId" component={CategoriesList} />
-                <Route path="/search/:searchTerm" component={CategoriesList} />
+                <Route key="root-navigation" path="/" component={NavigationBar} />
+                <Route key="root-categories" path="/" exact component={CategoriesList} />
+                <Route key="genre" path="/genre/:genreId/:genreName" component={CategoriesList} />
+                <Route key="search" path="/search/:searchTerm" component={CategoriesList} />
             </BrowserRouter>
         </div>
     );
