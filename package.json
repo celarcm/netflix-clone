@@ -1,5 +1,6 @@
 {
-  "name": "netflix",
+  "name": "netflix-clone",
+  "homepage": "https://celarcm.github.com/netflix-clone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
