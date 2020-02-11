@@ -12,7 +12,9 @@ export const fetchMoviesByGenre = (genreId) => async dispatch => {
 export const fetchMovie = (movieId) => async dispatch => {
     const response = await movieDBApi.get(`/movie/${movieId}`);
 
-    dispatch({ type: 'FETCH_MOVIE', payload: response.data.result });
+    console.log('response', response);
+
+    dispatch({ type: 'FETCH_MOVIE', payload: response.data });
 };
 
 export const searchMovies = (searchString) => async dispatch => {
