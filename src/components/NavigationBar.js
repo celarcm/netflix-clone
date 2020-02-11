@@ -5,21 +5,19 @@ class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            redirect: '',
-            searchSubmitted: false
+            redirect: null
         }
     }
     handleSubmit(e) {
         if (e.key === 'Enter') {
             console.log('Pressed Enter in search,', e.target.value);
             this.setState({
-                redirect: `/search/${e.target.value}`,
-                searchSubmitted: true
+                redirect: `/search/${e.target.value}`
             });
         }
     }
     render() {
-        if (this.state.searchSubmitted) {
+        if (this.state.redirect) {
             return <Redirect to={this.state.redirect}/>
         } else {
             return (
