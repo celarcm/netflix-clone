@@ -122,6 +122,32 @@
   .box img {
     border-radius: 2px;
   }
+
+  /* MOVIE DETAILS */
+  .movie-details {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .movie-details .details-description {
+    width: 60%;
+  }
+
+  .movie-details .details-image {
+    width: 40%;
+  }
+
+  .movie-details .details-description div {
+    margin-bottom: 12px;
+  }
+
+  .movie-details .details-description button {
+    padding: 12px;
+    color: white;
+    background-color: red;
+    font-size: 15px;
+    font-weight: bold;
+  }
   
   /* LINKS */
   .link {
